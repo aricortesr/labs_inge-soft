@@ -4,7 +4,20 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowVue",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:5000")
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        });
+});
+
 var app = builder.Build();
+
+app.UseCors("AllowVue");
 
 if (app.Environment.IsDevelopment())
 {

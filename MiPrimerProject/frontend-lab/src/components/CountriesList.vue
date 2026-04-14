@@ -1,28 +1,30 @@
 <template>
-    <div class="container mt-5">
-        <h1 class="display-4 text-center">Lista de países</h1>
-        <table
-            class="table is-bordered is-striped is-narrow is-hoverable
-            is-fullwidth"
-        >
+    <div class="container mt-4">
+        <h2>Lista de Países</h2>
+
+        <div class="row justify-content-end mb-3">
+            <div class="col-2">
+                <a href="/country">
+                    <button class="btn btn-outline-secondary">
+                        Agregar país
+                    </button>
+                </a>
+            </div>
+        </div>
+
+        <table class="table">
             <thead>
                 <tr>
                     <th>Nombre</th>
                     <th>Continente</th>
                     <th>Idioma</th>
-                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(country,index) of countries" :key="index">
-                    <td>{{ country.name }}</td>
-                    <td>{{ country.continent }}</td>
-                    <td>{{ country.language }}</td>
-                    <td>
-                        <button class="btn btn-secondary btn-sm">Editar</button>
-                    <button class="btn btn-danger btn-sm"
-                    @click="removeCountry(index)">Eliminar</button>
-                    </td>
+                <tr v-for="c in countries" :key="c.id">
+                    <td>{{ c.Name }}</td>
+                    <td>{{ c.Continent }}</td>
+                    <td>{{ c.Language }}</td>
                 </tr>
             </tbody>
         </table>
@@ -30,27 +32,25 @@
 </template>
 
 <script>
+    import axios from "axios";
+
     export default {
-        name: "CountriesList",
         data() {
             return {
-                countries: [
-                    { name: "Costa Rica", continent: "América", language: "Español"},
-                    { name: "Japón", continent: "Asia", language: "Japonés" },
-                    { name: "Corea del Sur", continent: "Asia", language: "Coreano"},
-                    { name: "Italia", continent: "Europa", language: "Italiano" },
-                    { name: "Alemania", continent: "Europa", language: "Alemán" },
-                ],
+                countries: [],
             };
         },
         methods: {
-            removeCountry(index) {
-                this.countries.splice(index, 1);
-            }
-        }
-    }
+            getCountries() {
+                axios
+                    .get("http://localhost:5000/api/country")
+                    .then((response) => {
+                        this.countries = response.data;
+                    });
+            },
+        },
+        created() {
+            this.getCountries();
+        },
+    };
 </script>
-
-<style lang="scss" scoped>
-
-</style>
