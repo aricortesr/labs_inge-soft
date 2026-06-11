@@ -5,9 +5,11 @@
         <div class="row justify-content-end mb-3">
             <div class="col-2">
                 <a href="/country">
-                    <button class="btn btn-outline-secondary">
-                        Agregar país
-                    </button>
+                    <router-link to="/country">
+                        <button class="btn btn-outline-secondary">
+                            Agregar país
+                        </button>
+                    </router-link>
                 </a>
             </div>
         </div>
@@ -22,35 +24,36 @@
             </thead>
             <tbody>
                 <tr v-for="c in countries" :key="c.id">
-                    <td>{{ c.Name }}</td>
-                    <td>{{ c.Continent }}</td>
-                    <td>{{ c.Language }}</td>
+                    <td>{{ c.name }}</td>
+                    <td>{{ c.continent }}</td>
+                    <td>{{ c.language }}</td>
                 </tr>
             </tbody>
         </table>
     </div>
 </template>
 
-<script>
-    import axios from "axios";
+<script>import axios from "axios";
 
-    export default {
-        data() {
-            return {
-                countries: [],
-            };
+export default {
+    data() {
+        return {
+            countries: [],
+        };
+    },
+    methods: {
+        getCountries() {
+            axios
+                .get("http://localhost:5000/api/country")
+                .then((response) => {
+                    this.countries = response.data;
+                })
+                .catch((error) => {
+                    console.error("Error capturado en la petición:", error);
+                });
         },
-        methods: {
-            getCountries() {
-                axios
-                    .get("http://localhost:5000/api/country")
-                    .then((response) => {
-                        this.countries = response.data;
-                    });
-            },
-        },
-        created() {
-            this.getCountries();
-        },
-    };
-</script>
+    },
+    mounted() {
+        this.getCountries();
+    },
+};</script>

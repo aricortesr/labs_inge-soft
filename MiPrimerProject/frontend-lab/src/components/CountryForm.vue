@@ -55,7 +55,7 @@ export default {
           Language: this.formData.Language,
         })
         .then(() => {
-          window.location.href = "/";
+        this.$router.push("/");
         })
         .catch((error) => {
           console.log(error);

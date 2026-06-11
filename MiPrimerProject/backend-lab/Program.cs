@@ -6,18 +6,17 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowVue",
-        policy =>
-        {
-            policy.WithOrigins("http://localhost:5000")
-                  .AllowAnyHeader()
-                  .AllowAnyMethod();
-        });
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
 });
 
 var app = builder.Build();
 
-app.UseCors("AllowVue");
+app.UseCors("AllowAll");
 
 if (app.Environment.IsDevelopment())
 {
