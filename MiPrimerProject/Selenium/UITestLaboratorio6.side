@@ -1,0 +1,127 @@
+{
+  "id": "8768dacf-ad71-4c19-9a42-9c96ba78a65f",
+  "version": "2.0",
+  "name": "UITestLaboratorio6",
+  "url": "http://localhost:8080",
+  "tests": [{
+    "id": "263c8e03-63b6-4918-9b4d-c2edddc8a21c",
+    "name": "PruebaUIUno",
+    "commands": [{
+      "id": "eab7fb98-4442-4968-8f6c-380a64cd48e7",
+      "comment": "",
+      "command": "open",
+      "target": "/country",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4c45e80c-8df1-4bd1-93cb-161e03f1bd35",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1295x687",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0d0bbbdf-a0b8-4a75-881c-2a28a09303d0",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.btn-outline-secondary",
+      "targets": [
+        ["css=.btn-outline-secondary", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/div/div/div/div/a/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Agregar país')]", "xpath:innerText"]
+      ],
+      "value": "Agregar país"
+    }, {
+      "id": "3940b37a-1559-46db-bc47-5a93fa61d464",
+      "comment": "",
+      "command": "click",
+      "target": "css=.display-4",
+      "targets": [
+        ["css=.display-4", "css:finder"],
+        ["xpath=//div[@id='app']/div/div/h1", "xpath:idRelative"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Lista de países')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "707b452b-a222-4a18-bd10-d7cd17e8daa9",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "frontend-lab",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7969f0a6-8d2f-48b4-ac01-ade4fbf03df1",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tr:nth-child(1) .btn-danger",
+      "targets": [
+        ["css=tr:nth-child(1) .btn-danger", "css:finder"],
+        ["xpath=//div[@id='app']/div/div/table/tbody/tr/td[4]/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Eliminar')]", "xpath:innerText"]
+      ],
+      "value": "Eliminar"
+    }, {
+      "id": "06f81e98-8180-4f0e-8336-abd3c5a9f9af",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(1) > td:nth-child(2)",
+      "targets": [
+        ["css=tr:nth-child(1) > td:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div/table/tbody/tr/td[2]", "xpath:idRelative"],
+        ["xpath=//td[2]", "xpath:position"],
+        ["xpath=//td[contains(.,'América')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8759c09f-f7f0-4918-b7ff-0e48557836a5",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tr:nth-child(1) > td:nth-child(2)",
+      "targets": [
+        ["css=tr:nth-child(1) > td:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div/table/tbody/tr/td[2]", "xpath:idRelative"],
+        ["xpath=//td[2]", "xpath:position"],
+        ["xpath=//td[contains(.,'América')]", "xpath:innerText"]
+      ],
+      "value": "América"
+    }, {
+      "id": "1abbec98-1352-4cad-a6e5-de895efc5b2f",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(1) > td:nth-child(1)",
+      "targets": [
+        ["css=tr:nth-child(1) > td:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div/table/tbody/tr/td", "xpath:idRelative"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'Costa Rica')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7a8232ed-807a-4961-9828-532f3f4d7485",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tr:nth-child(1) > td:nth-child(1)",
+      "targets": [
+        ["css=tr:nth-child(1) > td:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/div/div/table/tbody/tr/td", "xpath:idRelative"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'Costa Rica')]", "xpath:innerText"]
+      ],
+      "value": "Costa Rica"
+    }]
+  }],
+  "suites": [{
+    "id": "4b39267d-bd2c-42f5-879c-e8bf0fc4a323",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["263c8e03-63b6-4918-9b4d-c2edddc8a21c"]
+  }],
+  "urls": ["http://localhost:8080/"],
+  "plugins": []
+}
