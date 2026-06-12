@@ -41,5 +41,20 @@ namespace backend_lab.Controllers
                 return BadRequest(result);
             }
         }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<bool>> DeleteCountry(int id)
+        {
+            var result = countryService.DeleteCountry(id);
+
+            if (string.IsNullOrEmpty(result))
+            {
+                return Ok(true);
+            }
+            else
+            {
+                return BadRequest(result);
+            }
+        }
     }
 }

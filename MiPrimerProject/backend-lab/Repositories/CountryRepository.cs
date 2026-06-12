@@ -37,5 +37,21 @@ namespace backend_lab.Repositories
 
             return affectedRows >= 1;
         }
+
+        public bool DeleteCountry(int id)
+        {
+            int rowsAffected = 0;
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                var query = "DELETE FROM Country WHERE Id = @Id";
+                using (var command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Id", id);
+                    connection.Open();
+                    rowsAffected = command.ExecuteNonQuery();
+                }
+            }
+            return rowsAffected > 0;
+        }
     }
 }

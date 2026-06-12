@@ -37,5 +37,26 @@ namespace backend_lab.Services
 
             return result;
         }
+
+        public string DeleteCountry(int id)
+        {
+            var result = string.Empty;
+
+            try
+            {
+                var isDeleted = countryRepository.DeleteCountry(id);
+
+                if (!isDeleted)
+                {
+                    result = "Error al eliminar el país de la base de datos";
+                }
+            }
+            catch (Exception)
+            {
+                result = "Ocurrió un error inesperado al intentar eliminar el país";
+            }
+
+            return result;
+        }
     }
 }
